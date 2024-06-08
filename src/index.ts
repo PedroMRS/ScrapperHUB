@@ -1,5 +1,5 @@
 import express from 'express'
-import { conect } from '../src/db/connection'
+import { connect } from '../src/db/connection';
 import puppeteer from 'puppeteer-extra';
 import { searchCS2Players } from './searcher/cs_stats'
 import { findPlayerCS2, updatePlayerCS2 } from './db/cs_stats';
@@ -8,7 +8,7 @@ import { Router, Request, Response } from 'express';
 const app = express();
 export const route = Router();
 app.use(express.json());
-conect();
+connect();
 
 route.get('/health-check', (req: Request, res: Response) => {
   res.json({ message: 'im alive' })
